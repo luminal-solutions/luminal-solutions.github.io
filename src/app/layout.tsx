@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import Head from "next/head";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -20,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ptBR" suppressHydrationWarning>
+      <Head>
+        <link rel="icon" type="image/png" href="/img/icon-ls.png" />
+      </Head>
       <body className={inter.className}>
         <ThemeProvider attribute="class">
           <Navbar />
