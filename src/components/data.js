@@ -5,6 +5,7 @@ import {
   DevicePhoneMobileIcon,
   AdjustmentsHorizontalIcon,
   SunIcon,
+  LinkIcon,
 } from "@heroicons/react/24/solid";
 
 import benefitOneImg from "../../public/img/benefit-one.png";
@@ -49,9 +50,9 @@ const benefitTwo = {
       icon: <AdjustmentsHorizontalIcon />,
     },
     {
-      title: "Modo escuro inteligente",
-      desc: "Soluções visuais que respeitam a preferência dos usuários com modo escuro integrado.",
-      icon: <SunIcon />,
+      title: "Integrações sem dor de cabeça",
+      desc: "Conectamos sua solução aos sistemas que você já usa — ERPs, CRMs, plataformas de pagamento e muito mais.",
+      icon: <LinkIcon />,
     },
   ],
 };
