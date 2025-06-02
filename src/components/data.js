@@ -46,9 +46,9 @@ const benefitTwo = {
     },
     {
       title: "Stack tecnológico de ponta",
-      desc: "Aplicações desenvolvidas com Next.js, Tailwind, Supabase e outras ferramentas modernas.",
+      desc: "Utilizamos tecnologias modernas, escolhidas para garantir alta performance, segurança e fácil integração com as principais soluções do mercado.",
       icon: <AdjustmentsHorizontalIcon />,
-    },
+    },    
     {
       title: "Integrações sem dor de cabeça",
       desc: "Conectamos sua solução aos sistemas que você já usa — ERPs, CRMs, plataformas de pagamento e muito mais.",
