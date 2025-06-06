@@ -5,29 +5,39 @@ import Head from "next/head";
 
 export default function DemoRequestPage() {
   const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
+    setStatus("");
 
     const formData = new FormData(e.currentTarget);
 
-    const response = await fetch("/api/send-demo", {
-      method: "POST",
-      body: JSON.stringify({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        company: formData.get("company"),
-        message: formData.get("message"),
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const response = await fetch("/api/send-demo", {
+        method: "POST",
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          company: formData.get("company"),
+          message: formData.get("message"),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (response.ok) {
-      setStatus("success");
-    } else {
+      if (response.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
       setStatus("error");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -43,7 +53,8 @@ export default function DemoRequestPage() {
             Fale Conosco
           </h1>
           <p className="text-center text-gray-500 mb-8">
-            Preencha o formulário abaixo e entraremos em contato com você o mais breve possível.
+            Preencha o formulário abaixo e entraremos em contato com você o mais
+            breve possível.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -68,7 +79,19 @@ export default function DemoRequestPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Empresa (opcional)</label>
+              <label className="block text-sm font-medium mb-1">Celular</label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CAFFF]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-1">
+                Empresa (opcional)
+              </label>
               <input
                 type="text"
                 name="company"
@@ -88,14 +111,20 @@ export default function DemoRequestPage() {
 
             <button
               type="submit"
-              className="w-full py-3 rounded-lg font-semibold bg-gradient-to-r from-[#FFE566] to-[#3F87F5] text-black hover:opacity-90 transition"
+              disabled={isLoading}
+              className={`w-full py-3 rounded-lg font-semibold text-black transition ${
+                isLoading
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-gradient-to-r from-[#FFE566] to-[#3F87F5] hover:opacity-90"
+              }`}
             >
-              Enviar mensagem
+              {isLoading ? "Enviando..." : "Enviar mensagem"}
             </button>
 
             {status === "success" && (
               <p className="text-center text-green-600 mt-3 font-medium">
-                Solicitação enviada com sucesso!
+                Solicitação enviada com sucesso! Entraremos em contato em breve
+                :)
               </p>
             )}
 
