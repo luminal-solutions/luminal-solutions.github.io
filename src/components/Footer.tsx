@@ -27,22 +27,9 @@ export function Footer() {
             </Link>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              Desenvolvemos soluções digitais sob medida para empresas que desejam inovar com inteligência.  
-              Da estratégia à tecnologia, iluminamos o caminho da transformação digital.
-            </div>
-          </div>
-
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {legal.map((item, index) => (
-                <Link
-                  key={index}
-                  href="/"
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                >
-                  {item}
-                </Link>
-              ))}
+              Desenvolvemos soluções digitais sob medida para empresas que
+              desejam inovar com inteligência. Da estratégia à tecnologia,
+              iluminamos o caminho da transformação digital.
             </div>
           </div>
 
@@ -84,7 +71,8 @@ export function Footer() {
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          © {new Date().getFullYear()} Luminal Solutions. Todos os direitos reservados.
+          © {new Date().getFullYear()} Luminal Solutions. Todos os direitos
+          reservados.
         </div>
       </Container>
     </div>
@@ -160,7 +148,6 @@ const Backlink = () => {
           fill="#F7FAFC"
         />
       </svg>
-
     </a>
   );
 };
