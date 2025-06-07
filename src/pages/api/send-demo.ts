@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "luminalcontato@gmail.com",
+      user: "contato@luminalsolutions.com.br",
       pass: process.env.GMAIL_APP_PASSWORD,
     },
   });
@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await transporter.sendMail({
       from: email,
-      to: "luminalcontato@gmail.com",
+      to: "contato@luminalsolutions.com.br",
       subject: "Nova Solicitação de Demonstração",
       html: `
         <p><strong>Nome:</strong> ${name}</p>
