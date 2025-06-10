@@ -7,13 +7,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { name, email, phone, company, message } = req.body;
 
-  if (!name || !email || !message) {
-    console.error("Campos obrigatórios ausentes");
-    return res.status(400).json({ error: "Campos obrigatórios ausentes." });
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!name || !email || !message || !emailRegex.test(email)) {
+    console.error("Campos obrigatórios ausentes ou inválidos");
+    return res.status(400).json({ error: "Por favor, preencha todos os campos obrigatórios com informações válidas." });
   }
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
       user: "luminalcontato@gmail.com",
       pass: process.env.GMAIL_APP_PASSWORD,
@@ -22,8 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     await transporter.sendMail({
-      from: "Luminal Site <contato@luminalsolutions.com.br>",
-      to: "contato@luminalsolutions.com.br",
+      from: "Luminal Site <luminalcontato@gmail.com>",
+      to: "luminalcontato@gmail.com",
       replyTo: email,
       subject: "Nova Solicitação de Demonstração",
       html: `
