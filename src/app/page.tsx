@@ -12,12 +12,14 @@ export default function Home() {
   return (
     <Container>
       <Hero />
-      <SectionTitle title="Parceiros">
-        Com a confiança de empresas lideres em{" "}
-        <span className="text-[#8CAFFF]">tecnologia e inovação</span>{" "}
-      </SectionTitle>
-      <Client />
-      
+      <Container className="bg-gray-900">
+        <SectionTitle title="Parceiros">
+          Com a confiança de empresas lideres em{" "}
+          <span className="text-[#8CAFFF]">tecnologia e inovação</span>{" "}
+        </SectionTitle>
+        <Client />
+      </Container>
+
       <SectionTitle title="Por que escolher a Luminal?">
         Na Luminal, iluminamos o caminho da transformação digital com soluções
         tecnológicas sob medida. Ajudamos empresas a evoluírem com inovação,
