@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
+import { Client } from "@/components/Client";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
@@ -11,17 +12,21 @@ export default function Home() {
   return (
     <Container>
       <Hero />
-      <SectionTitle
-        preTitle="Beneficios"
-        title="Por que escolher a Luminal?"
-      >
-        Na Luminal, iluminamos o caminho da transformação digital com soluções tecnológicas sob medida.  
-        Ajudamos empresas a evoluírem com inovação, inteligência e impacto real — do planejamento à execução.
+      <SectionTitle title="Parceiros">
+        Com a confiança de empresas lideres em{" "}
+        <span className="text-[#8CAFFF]">tecnologia e inovação</span>{" "}
+      </SectionTitle>
+      <Client />
+      
+      <SectionTitle title="Por que escolher a Luminal?">
+        Na Luminal, iluminamos o caminho da transformação digital com soluções
+        tecnológicas sob medida. Ajudamos empresas a evoluírem com inovação,
+        inteligência e impacto real — do planejamento à execução.
       </SectionTitle>
 
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
-{/* 
+      {/* 
       <SectionTitle
         preTitle="Demonstração"
         title="Descubra como nossas soluções podem transformar o seu negócio"
@@ -30,19 +35,9 @@ export default function Home() {
         estão ajudando empresas a crescerem com mais eficiência, inovação e autonomia.
       </SectionTitle> */}
 
-      <SectionTitle
-        preTitle="Depoimentos"
-        title="O que nossos clientes dizem"
-      >
-        A confiança dos nossos parceiros é nossa maior conquista.
-        Veja como a Luminal tem feito a diferença em diferentes segmentos e projetos.
-      </SectionTitle>
-
-      <Testimonials />
-
-      <SectionTitle preTitle="FAQ" title="Perguntas Frequentes">
-        Tire suas dúvidas sobre como trabalhamos, quais serviços oferecemos e como podemos ajudar sua empresa
-        a avançar com segurança e inovação.
+      <SectionTitle title="Perguntas Frequentes">
+        Tire suas dúvidas sobre como trabalhamos, quais serviços oferecemos e
+        como podemos ajudar sua empresa a avançar com segurança e inovação.
       </SectionTitle>
 
       <Faq />

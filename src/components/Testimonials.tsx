@@ -18,7 +18,6 @@ export const Testimonials = () => {
             </p>
 
             <Avatar
-              image={userOneImg}
               name="Ana Lívia"
               title="Diretora de Operações na Conecta Saúde"
             />
@@ -32,7 +31,6 @@ export const Testimonials = () => {
             </p>
 
             <Avatar
-              image={userTwoImg}
               name="Pedro Augusto"
               title="Coordenador de Projetos na UpTech"
             />
@@ -45,7 +43,6 @@ export const Testimonials = () => {
             </p>
 
             <Avatar
-              image={userThreeImg}
               name="Henrique Cruz"
               title="Fundadora da NovaMind"
             />
@@ -57,7 +54,6 @@ export const Testimonials = () => {
 };
 
 interface AvatarProps {
-  image: any;
   name: string;
   title: string;
 }
@@ -66,13 +62,6 @@ function Avatar(props: Readonly<AvatarProps>) {
   return (
     <div className="flex items-center mt-8 space-x-3">
       <div className="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
-        <Image
-          src={props.image}
-          width="40"
-          height="40"
-          alt="Avatar"
-          placeholder="blur"
-        />
       </div>
       <div>
         <div className="text-lg font-medium">{props.name}</div>
