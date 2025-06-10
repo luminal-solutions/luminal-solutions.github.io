@@ -112,11 +112,10 @@ export default function DemoRequestPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full py-3 rounded-lg font-semibold text-black transition ${
-                isLoading
+              className={`w-full py-3 rounded-lg font-semibold text-white transition ${isLoading
                   ? "bg-gray-300 cursor-not-allowed"
                   : "bg-gradient-to-r from-[#FFE566] to-[#3F87F5] hover:opacity-90"
-              }`}
+                }`}
             >
               {isLoading ? "Enviando..." : "Enviar mensagem"}
             </button>

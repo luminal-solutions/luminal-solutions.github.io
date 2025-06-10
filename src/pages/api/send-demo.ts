@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "contato@luminalsolutions.com.br",
+      user: "luminalcontato@gmail.com",
       pass: process.env.GMAIL_APP_PASSWORD,
     },
   });
