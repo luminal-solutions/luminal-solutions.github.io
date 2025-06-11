@@ -25,6 +25,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   });
 
   try {
+    await transporter.verify();
+    console.log("SMTP Connection verified successfully.");
+  } catch (err) {
+    console.error("SMTP Connection verification failed:", err);
+    return res.status(500).json({ error: "Failed to connect to email server." });
+  }
+
+  try {
     await transporter.sendMail({
       from: "Luminal Site <luminalcontato@gmail.com>",
       to: "luminalcontato@gmail.com",
