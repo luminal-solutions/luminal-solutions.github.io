@@ -17,6 +17,8 @@ COPY --from=builder /app/next.config.js ./
 
 COPY --from=builder /app/dist ./dist
 
+COPY --from=builder /app/.env.local ./.env
+
 RUN npm install --production
 
 EXPOSE 3000
